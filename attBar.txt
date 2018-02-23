@@ -1,0 +1,42 @@
+
+import java.util.Scanner;
+
+public class Bar {
+
+    public static void main(String[] args) {
+        int totalCervejas = 99;
+
+        while (totalCervejas > 0) {
+            System.out.println(totalCervejas + " cervejas no feeezer.");
+
+            System.out.println("Pego uma garrafa, passo para frente.");
+            totalCervejas -= 1;
+
+            System.out.println("Agora são " + totalCervejas + " no freezer");
+
+            if (totalCervejas == 1 && confirmarReabastecimento()) {
+                totalCervejas = 99;
+                System.out.println("Freezer reabastecido com sucesso!");
+            } 
+        }
+
+    }
+
+    public static boolean confirmarReabastecimento() {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Voce quer reabastecer o freezer [S/N]? ");
+
+        switch (scan.nextLine().toUpperCase()) {
+            case "N":
+            case "NAO":
+                return false;
+            case "S":
+            case "SIM":
+                return true;
+            default:
+                System.out.println("Nao entendi, vou levar isso como um nao.");
+        }
+        return false;
+    }
+}
